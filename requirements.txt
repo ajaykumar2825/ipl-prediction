@@ -1,10 +1,15 @@
-streamlit==1.39.0
-pandas==2.2.3
-numpy==1.26.4
-plotly==5.24.1
-scikit-learn==1.5.2
-xgboost==2.1.2
-pyarrow==17.0.0
-joblib==1.4.2
-scipy==1.14.1
-altair==5.4.1
+# NOTE: use LOWER-BOUND pins (>=), never exact (==) pins.
+# Exact pins like pyarrow==17.0.0 / numpy==1.26.4 have no CPython 3.13/3.14
+# wheels, so installers try to build them from source and fail
+# (ModuleNotFoundError: No module named 'pkg_resources').
+# Lower bounds let uv/pip resolve the newest wheel that fits the interpreter.
+streamlit>=1.39
+pandas>=2.2
+numpy>=1.26
+plotly>=5.24
+scikit-learn>=1.5
+xgboost>=2.1
+pyarrow>=17
+joblib>=1.4
+scipy>=1.14
+altair>=5.4
